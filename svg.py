@@ -8,7 +8,7 @@ def svg_to_processing(input_file, output_file):
     root = tree.getroot()
 
     # Processingのコードを構築する.
-    processing_code = "void setup() {\n  size(360, 640);// ここは固定\n  colorMode( RGB );\n  background(#e0b1c5);\n  drawMyWallPaper();// 自作の関数\n  saveFrame(\"myWallPaper_20XX531XYZ.png\");\n}\n\nvoid kuromi() {\n"
+    processing_code = "void setup(){\n  svgDraw();\n}\n  void svgDraw() {\n  colorMode( RGB );\n"
     print(processing_code)
     # 各要素を処理する.
     for elem in root.iter():
@@ -143,4 +143,4 @@ def drawmode(style):
 
 
 if __name__ == "__main__":
-    svg_to_processing("test.svg", "oshareKabegami.pde")
+    svg_to_processing("test.svg", "output.pde")
