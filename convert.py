@@ -1,8 +1,8 @@
 import re
 
 # ファイルパス
-input_file_path = 'save.svg'  # 元のファイル
-output_file_path = 'test.svg'     # 結果を保存するファイル
+input_file_path = str(input("file name"))  # 元のファイル
+output_file_path = 'running.svg'     # 結果を保存するファイル
 
 # ファイルを読み込んで内容を取得
 with open(input_file_path, 'r') as input_file:

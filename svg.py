@@ -1,6 +1,20 @@
 import xml.etree.ElementTree as ET
 import re
 
+def convert(input_file):
+    # ファイルを読み込んで内容を取得
+    with open(input_file, 'r') as file:
+        file_content = file.read()
+
+    # 置換を行う
+    modified_content = file_content.replace("sodipodi:cx","sodipodicx").replace("sodipodi:cy","sodipodicy").replace("sodipodi:rx","sodipodirx").replace("sodipodi:ry","sodipodiry").replace("sodipodi:start","sodipodistart").replace("sodipodi:end","sodipodiend").replace("sodipodi:arc-type","sodipodiarctype")
+
+    # 結果を新しいファイルに保存
+    with open("running.svg", 'w') as output_file:
+        output_file.write(modified_content)
+
+    print(f'"{input_file}" が置換され、結果が"running.svg"に保存されました。')
+
 
 def svg_to_processing(input_file, output_file):
     # XMLファイルを読み込む
@@ -138,12 +152,11 @@ def drawmode(style):
     print(stylecode)
     return stylecode
 
-
-
-
-
-
+def main():
+    svg_file = str(input("write file name without .svg"))
+    convert("{}.svg".format(svg_file))
+    svg_to_processing("running.svg","{}.pde".format(svg_file))
 
 
 if __name__ == "__main__":
-    svg_to_processing("test.svg", "output.pde")
+    main()
