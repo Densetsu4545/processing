@@ -1,5 +1,6 @@
 import xml.etree.ElementTree as ET
 import re
+import os
 
 def convert(input_file):
     # ファイルを読み込んで内容を取得
@@ -156,6 +157,7 @@ def main():
     svg_file = str(input("write file name without .svg\n"))
     convert("{}.svg".format(svg_file))
     svg_to_processing("running.svg","{}.pde".format(svg_file))
+    os.remove("running.svg")
 
 
 if __name__ == "__main__":
