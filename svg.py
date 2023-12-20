@@ -25,6 +25,9 @@ def svg_to_processing(input_file, output_file):
             else:
                 rx = float(elem.attrib['rx'])
                 ry = float(elem.attrib['ry'])
+
+
+
             if elem.tag == '{http://www.w3.org/2000/svg}circle':
                 processing_code += f"  ellipse({cx}, {cy}, {r * 2}, {r * 2});\n"
                 print(f"ellipse({cx}, {cy}, {r * 2}, {r * 2});\n")
@@ -63,10 +66,10 @@ def svg_to_processing(input_file, output_file):
                 if(type == "slice"): 
                     processing_code += f"  arc({cx}, {cy}, {rx * 2}, {ry * 2},{start},{end},PIE);\n"
                     print(f"arc({cx}, {cy}, {rx * 2}, {ry * 2},{start},{end},PIE);\n")
-                if(type == "arc"): 
+                elif(type == "arc"): 
                     processing_code += f"  arc({cx}, {cy}, {rx * 2}, {ry * 2},{start},{end},OPEN);\n"
                     print(f"arc({cx}, {cy}, {rx * 2}, {ry * 2},{start},{end},OPEN);\n")
-                if(type == "chord"): 
+                elif(type == "chord"): 
                     processing_code += f"  arc({cx}, {cy}, {rx * 2}, {ry * 2},{start},{end},CHORD);\n"
                     print(f"arc({cx}, {cy}, {rx * 2}, {ry * 2},{start},{end},CHORD);\n")
             except:
