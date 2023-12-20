@@ -8,7 +8,7 @@ def svg_to_processing(input_file, output_file):
     root = tree.getroot()
 
     # Processingのコードを構築する.
-    processing_code = "void setup(){\n  svgDraw();\n}\n  void svgDraw() {\n  colorMode( RGB );\n"
+    processing_code = "void setup(){\n  size(360,640);\n  svgDraw();\n}\n  void svgDraw() {\n  colorMode( RGB );\n"
     print(processing_code)
     # 各要素を処理する.
     for elem in root.iter():
