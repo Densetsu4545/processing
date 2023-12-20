@@ -153,7 +153,7 @@ def drawmode(style):
     return stylecode
 
 def main():
-    svg_file = str(input("write file name without .svg"))
+    svg_file = str(input("write file name without .svg\n"))
     convert("{}.svg".format(svg_file))
     svg_to_processing("running.svg","{}.pde".format(svg_file))
 
